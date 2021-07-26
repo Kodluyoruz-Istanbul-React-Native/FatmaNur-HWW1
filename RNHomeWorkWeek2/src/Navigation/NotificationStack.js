@@ -12,12 +12,12 @@ const HomeStack = props => {
         <Stack.Navigator
             // navigation object değeri ile mevcut durumda geliştirme yapamadım şu an işlevsiz ama kullanmaya çalışıyodum.
             // headerTitle prop u ile header kısmını özelleştiriyorum.
-            screenOptions={({ navigation }) => {
-                return {
-                    headerTitle: () => <Header svg={Svgs.TwBird} iconStatus={false} text={'Bildirimler'} navigation={navigation}></Header>
+            screenOptions={ {
+               
+                    headerTitle: () => <Header svg={Svgs.TwBird} iconStatus={false} text={'Bildirimler'}></Header>
                     // Header custom component
 
-                }
+               
             }}
 
         >
