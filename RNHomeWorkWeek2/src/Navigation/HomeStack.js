@@ -9,9 +9,14 @@ const Stack = createStackNavigator();
 const HomeStack = props => {
     return (
         <Stack.Navigator
-            screenOptions={{
-                headerTitle: () => <Header svg={Svgs.TwBird} iconStatus={true} />
-            }} >
+            screenOptions={({ navigation }) => {
+                return {
+                    headerTitle: () => <Header svg={Svgs.TwBird} iconStatus={true} navigation={navigation}></Header>
+                    // Header custom component
+
+                }
+            }}
+        >
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
     );
