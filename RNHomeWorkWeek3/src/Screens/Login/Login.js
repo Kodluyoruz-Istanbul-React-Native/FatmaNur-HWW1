@@ -1,7 +1,7 @@
 import LoginUI from './LoginUI';
 
 import React, { useState } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { signUp, signIn } from '../../Firebase/Firebase'
 import { setUserAC } from '../../Redux/UserRedux';
@@ -34,8 +34,8 @@ const Login = props => {
                 // alert("giriş başarılı")
                 dispatch(setUserAC(responce.user))
             })
-            .catch(() => {
-                alert('hata!')
+            .catch(reject => {
+                alert(reject)
             })
     }
     return (
