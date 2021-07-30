@@ -1,35 +1,62 @@
 import * as React from 'react';
-import { Button, View } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { View, Text, Button ,TouchableOpacity} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+    createDrawerNavigator,
+    DrawerContentScrollView,
+    DrawerItemList,
+    DrawerItem,
+} from '@react-navigation/drawer';
+import TabNavigation from './TabNavigation';
 
-// deneme amaçlı bir component değerlendirmeye almayınız!!!.
-
-function HomeScreenc({ navigation }) {
+function Feed({ navigation }) {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Button
-                onPress={() => navigation.navigate('Notifications')}
-                title="Go to notifications"
-            />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Feed Screen</Text>
+            <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
+            <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
         </View>
     );
 }
 
-function NotificationsScreenc({ navigation }) {
+function Notifications({navigation}) {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Button onPress={() => navigation.goBack()} title="Go back home" />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Notifications Screen</Text>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('HomeTab')}>
+                <Text>kapat</Text>
+            </TouchableOpacity>
         </View>
+    );
+}
+
+function CustomDrawerContent(props) {
+    return (
+        <DrawerContentScrollView {...props}>
+            <DrawerItemList {...props} />
+            <DrawerItem
+                label="Close drawer"
+                onPress={() => props.navigation.closeDrawer()}
+            />
+            <DrawerItem
+                label="Toggle drawer"
+                onPress={() => props.navigation.toggleDrawer()}
+            />
+        </DrawerContentScrollView>
     );
 }
 
 const Drawer = createDrawerNavigator();
 
-export default function Drawerr() {
+function MyDrawer() {
     return (
-            <Drawer.Navigator initialRouteName="Hom">
-                <Drawer.Screen name="Hom" component={HomeScreenc} />
-                <Drawer.Screen name="Noti" component={NotificationsScreenc} />
-            </Drawer.Navigator>
+        <Drawer.Navigator>
+            <Drawer.Screen name="HomeTab" component={TabNavigation} options={{title:'Home'}} />
+            <Drawer.Screen name="Notifications" component={Notifications} />
+            <Drawer.Screen name="feed" component={Feed} />
+        </Drawer.Navigator>
     );
 }
+
+export default MyDrawer;

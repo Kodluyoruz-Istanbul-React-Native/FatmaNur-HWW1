@@ -7,9 +7,12 @@ import { Svgs } from '../StylingConstants';
 import Icon from './Icon';
 
 const Header = (props) => {
+    
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.icon}>
+            <TouchableOpacity style={styles.icon}
+                onPress={() => props.navigation.toggleDrawer()}
+            >
                 <Icon svg={Svgs.MenuLines} iconStyle={{ color: '#1DA1F2' }} ></Icon>
             </TouchableOpacity>
             {
