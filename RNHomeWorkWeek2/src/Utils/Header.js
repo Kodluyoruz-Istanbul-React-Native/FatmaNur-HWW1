@@ -7,7 +7,7 @@ import { Svgs } from '../StylingConstants';
 import Icon from './Icon';
 
 const Header = (props) => {
-    
+
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.icon}
@@ -43,7 +43,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     icon: {
-        width: Metrics.width * 0.06
+        width: Metrics.width * 0.06,
+        aspectRatio: 1
+
     },
     iconBig: {
         width: Metrics.width * 0.085,

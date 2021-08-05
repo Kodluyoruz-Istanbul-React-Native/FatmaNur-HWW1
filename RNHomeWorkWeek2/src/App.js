@@ -10,7 +10,7 @@ const App = () => {
         () => {
             setTimeout(() => {
                 setSplashMode(false)
-            }, 500);
+            }, 3000);
         }, []); //yarım saniye sonra state güncellmesi yapılır ve showSplash değeri false olur
 
     return (

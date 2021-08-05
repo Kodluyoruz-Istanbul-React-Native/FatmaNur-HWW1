@@ -9,7 +9,7 @@ const Splash = props => {
     return (
         <View style={styles.container}>
             <View style={styles.iconContainer}>
-                <Icon svg={Svgs.TwBird} iconStyle={{ color: '#FFF' }}></Icon>
+                <Icon svg={Svgs.TwBird} iconStyle={{ color: 'white' }}></Icon>
             </View>
         </View>
     );

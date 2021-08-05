@@ -56,6 +56,7 @@ function MyDrawer() {
             <Drawer.Screen name="Notifications" component={Notifications} />
             <Drawer.Screen name="feed" component={Feed} />
         </Drawer.Navigator>
+        
     );
 }
 

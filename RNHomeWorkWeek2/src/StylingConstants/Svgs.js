@@ -1,10 +1,20 @@
-import Envelope from './Svgs/envelope.svg';
-import Home from './Svgs/home.svg';
-import Ring from './Svgs/ring.svg';
-import Search from './Svgs/search.svg';
-import TwBird from './Svgs/twitter.svg';
-import MenuLines from './Svgs/threeLines.svg';
-import Settings from './Svgs/settings.svg';
+//tab Svgs
+
+import Envelope from './Svgs/TabSvgs/envelope.svg';
+import Home from './Svgs/TabSvgs/home.svg';
+import Ring from './Svgs/TabSvgs/ring.svg';
+import Search from './Svgs/TabSvgs/search.svg';
+import TwBird from './Svgs/TabSvgs/twitter.svg';
+import MenuLines from './Svgs/TabSvgs/threeLines.svg';
+import Settings from './Svgs/TabSvgs/settings.svg';
+
+// tweet Svgs
+import Comment from './Svgs/TweetSvgs/comment.svg';
+import Heart from './Svgs/TweetSvgs/heart.svg';
+import Retweet from './Svgs/TweetSvgs/retweet.svg';
+import Upload from './Svgs/TweetSvgs/upload.svg';
+
+
 
 export default Svgs = {
   Envelope,
@@ -13,5 +23,9 @@ export default Svgs = {
   Search,
   TwBird,
   MenuLines,
-  Settings
+  Settings,
+  Comment,
+  Heart,
+  Retweet,
+  Upload
 }
