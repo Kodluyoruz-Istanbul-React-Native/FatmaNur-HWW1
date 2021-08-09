@@ -23,6 +23,7 @@ const LoginUI = props => {
                         value={props.emailValue}
                         onChangeText={props.onChangeText_Email}
                         style={styles.textInput}
+                        keyboardType='email-address'
                         placeholder='e-posta'>
                     </TextInput>
                     <TextInput

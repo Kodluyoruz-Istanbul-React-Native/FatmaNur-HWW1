@@ -13,6 +13,8 @@ import Comment from './Svgs/TweetSvgs/comment.svg';
 import Heart from './Svgs/TweetSvgs/heart.svg';
 import Retweet from './Svgs/TweetSvgs/retweet.svg';
 import Upload from './Svgs/TweetSvgs/upload.svg';
+import NewMessage from './Svgs/TweetSvgs/newMessage.svg';
+import Send from './Svgs/TweetSvgs/send-mail.svg'
 
 
 
@@ -27,5 +29,7 @@ export default Svgs = {
   Comment,
   Heart,
   Retweet,
-  Upload
+  Upload,
+  NewMessage,
+  Send
 }
