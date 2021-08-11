@@ -1,4 +1,6 @@
 import createFBAuth from "@react-native-firebase/auth";
+import database from '@react-native-firebase/database';
+
 
 const auth = createFBAuth();
 
@@ -15,4 +17,15 @@ export const signIn = async (email, password) => {
 
 export const signOut = async () => {
     return await auth.signOut();
+}
+
+
+export const sendMessage = async (uid, { name, message }) => {
+    const newReference = database().ref(`/users/${uid}`).push();
+    newReference
+        .set({
+            to: name,
+            message: message
+        })
+        .then(() => console.log('Data set.'));
 }

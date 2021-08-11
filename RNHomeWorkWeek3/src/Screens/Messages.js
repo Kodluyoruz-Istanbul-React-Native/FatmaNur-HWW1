@@ -4,7 +4,7 @@ import Metrics from '../constant/Metrics'
 import { Svgs } from '../StylingConstants';
 import Icon from '../Utils/Icon';
 import Modal from 'react-native-modal';
-import MessageBox from './MessageBox';
+import MessageBox from '../Utils/MessageBox';
 
 const Messages = props => {
     const [isVisible, setVisible] = useState(false)
