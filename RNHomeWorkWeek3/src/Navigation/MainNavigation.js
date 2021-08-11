@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { StatusBar } from 'react-native';
-
 import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -19,6 +18,7 @@ const MainNavigation = props => {
 
             <NavigationContainer>
                 <StatusBar backgroundColor="white" barStyle="dark-content" />
+
                 {
                     loggedInUser ?
                         <MyDrawer />

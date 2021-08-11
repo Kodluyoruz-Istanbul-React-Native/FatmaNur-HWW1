@@ -5,13 +5,13 @@ import Metrics from '../constant/Metrics';
 import { sendMessage } from '../Firebase/Firebase';
 import { userSelector } from '../Redux/UserRedux';
 
+
 const MessageBox = props => {
+    const user = useSelector(userSelector)
     const [to, setTo] = useState('')
     const [message, setMessage] = useState('')
-    const user = useSelector(userSelector)
-    const userID = user.uid;
+    const userID = user.uid
 
-    
     const _sendMessage = async (userID, { name: to, message }) => {
 
         if (to.trim() === '' || message.trim() === '') {
@@ -24,7 +24,6 @@ const MessageBox = props => {
 
     }
     return (
-        
         <View
             style={styles.container}>
             <View>
@@ -52,7 +51,7 @@ const MessageBox = props => {
             <View style={styles.buttonCont}>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => _sendMessage(userID,{ name: to, message:message })}
+                    onPress={() => _sendMessage(userID, { name: to, message })}
 
                 >
                     <Text style={{ color: 'white' }}>Gönder</Text>
