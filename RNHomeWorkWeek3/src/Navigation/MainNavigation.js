@@ -13,12 +13,12 @@ import { userSelector } from '../Redux/UserRedux';
 const MainNavigation = props => {
 
     const loggedInUser = useSelector(userSelector)
-    const isLoggedIn=loggedInUser!==null
-    
-        return (
+     
+        return (   
+
             <NavigationContainer>
                 {
-                    isLoggedIn ?
+                    loggedInUser ?
                         <MyDrawer />
                                           
 

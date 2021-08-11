@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { View, Text, Button ,TouchableOpacity} from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import {
     createDrawerNavigator,
@@ -8,6 +9,9 @@ import {
     DrawerItem,
 } from '@react-navigation/drawer';
 import TabNavigation from './TabNavigation';
+import Settings from '../Screens/Setting'
+import { Svgs } from '../StylingConstants';
+import Header from '../Utils/Header';
 
 function Feed({ navigation }) {
     return (
@@ -30,21 +34,22 @@ function Notifications({navigation}) {
         </View>
     );
 }
-
-function CustomDrawerContent(props) {
+ const Stack=createStackNavigator()
+const SettingStack = () => {
     return (
-        <DrawerContentScrollView {...props}>
-            <DrawerItemList {...props} />
-            <DrawerItem
-                label="Close drawer"
-                onPress={() => props.navigation.closeDrawer()}
-            />
-            <DrawerItem
-                label="Toggle drawer"
-                onPress={() => props.navigation.toggleDrawer()}
-            />
-        </DrawerContentScrollView>
-    );
+        <Stack.Navigator
+            screenOptions={({ navigation }) => {
+                return {
+
+                    headerTitle: () => <Header svg={Svgs.Settings} iconStatus={false} text={'Ayarlar'} navigation={navigation}></Header>
+                    // Header custom component
+                }
+            }}
+        >
+            
+            <Stack.Screen name="Settings" component={Settings} />
+        </Stack.Navigator>
+    )
 }
 
 const Drawer = createDrawerNavigator();
@@ -55,6 +60,7 @@ function MyDrawer() {
             <Drawer.Screen name="HomeTab" component={TabNavigation} options={{title:'Home'}} />
             <Drawer.Screen name="Notifications" component={Notifications} />
             <Drawer.Screen name="feed" component={Feed} />
+            <Drawer.Screen name="settings" component={SettingStack} />
         </Drawer.Navigator>
         
     );

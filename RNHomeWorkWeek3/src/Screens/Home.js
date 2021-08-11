@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     image: {
         width: Metrics.width * 0.15,
         height: Metrics.width * 0.15,
-        resizeMode: 'contain'
+        borderRadius:100
     },
     tweetInfoCont: {
         flex: 0.8

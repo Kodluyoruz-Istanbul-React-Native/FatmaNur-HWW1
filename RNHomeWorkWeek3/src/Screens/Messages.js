@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, FlatList ,Text} from 'react-native';
 import Metrics from '../constant/Metrics'
 import { Svgs } from '../StylingConstants';
 import Icon from '../Utils/Icon';
@@ -8,31 +8,32 @@ import MessageBox from './MessageBox';
 
 const Messages = props => {
     const [isVisible, setVisible] = useState(false)
-    const _visibility = val=> {
+    const _visibility = val => {
         setVisible(val)
     }
     return (
 
         <View style={styles.container}>
-            <Text>dneme</Text>
+            <Text>wdwn</Text>
             <View style={styles.iconContainer}>
                 <TouchableOpacity style={styles.circle}
-                    onPress={() =>_visibility(true)}>
+                    onPress={() => _visibility(true)}>
                     <Icon svg={Svgs.NewMessage} iconStyle={{ color: 'white' }}></Icon>
                 </TouchableOpacity>
             </View>
             <Modal
                 animationType="slide"
-                visible={isVisible}
+                isVisible={isVisible}
+                backdropColor='black'
                 backdropOpacity={0.5}
-                onBackdropPress={()=>_visibility(false)}
+                onBackdropPress={() => _visibility(false)}
                 style={{
                     justifyContent: "flex-end",
                     margin: 0
                 }}
             >
                 <MessageBox
-                visibility={(val)=>_visibility(val)}
+                    visibility={(val) => _visibility(val)}
                 />
             </Modal>
         </View>
@@ -49,7 +50,8 @@ const styles = StyleSheet.create({
         flex: 0.15,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        flexDirection: 'row'
+        flexDirection: 'row',
+
     },
     circle: {
         height: Metrics.width * 0.15,
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1DA1F2',
         marginRight: Metrics.width * 0.02,
         padding: Metrics.width * 0.03,
-        paddingBottom: 0
+        paddingBottom: 0,
+
     }
 });

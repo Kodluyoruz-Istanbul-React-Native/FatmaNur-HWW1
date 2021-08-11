@@ -25,7 +25,9 @@ const Header = (props) => {
 
             }
 
-            <TouchableOpacity style={styles.icon}>
+            <TouchableOpacity style={styles.icon}
+                onPress={() => props.navigation.navigate('settings')}
+            >
                 <Icon svg={Svgs.Settings} iconStyle={{ color: '#1DA1F2' }} ></Icon>
             </TouchableOpacity>
 
