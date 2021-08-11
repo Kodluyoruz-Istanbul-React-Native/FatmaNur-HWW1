@@ -1,5 +1,6 @@
 import createFBAuth from "@react-native-firebase/auth";
 import database from '@react-native-firebase/database';
+import { convertedData } from "./ConvertedData";
 
 
 const auth = createFBAuth();
@@ -26,17 +27,11 @@ export const sendMessage = async (uid, { name, message }) => {
         })
         .then(() => console.log('Data set.'));
 }
+export const getCurrentUser = () => {
+    return auth.currentUser;
+}
 
-// export const getMessages = async (uid) => {
-
-
-//     //  await database()
-//     //     .ref(`/users/${uid}/`)
-//     //     .on('value', snapshot => {
-//     //         console.log('User data: ', snapshot.val());
-//     //     });
-
-
-
-// }
+export const getMessages = () => {
+    
+}
 

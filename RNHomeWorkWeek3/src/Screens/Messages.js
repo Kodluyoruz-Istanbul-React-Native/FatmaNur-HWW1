@@ -11,9 +11,10 @@ const Messages = props => {
     const _visibility = val => {
         setVisible(val)
     }
+    
     return (
         <View style={styles.container}>
-            <Text>wdwn</Text>
+            <Text>liste</Text>
             <View style={styles.iconContainer}>
                 <TouchableOpacity style={styles.circle}
                     onPress={() => _visibility(true)}>

@@ -18,7 +18,7 @@ const Settings = props => {
             <View style={{ justifyContent: 'space-between', flex: 1 }}>
                 <Text
                     style={styles.mailText}
-                >{user.email}</Text>
+                >e-posta = {user.email}</Text>
                 <View style={styles.buttonCont}>
                     <TouchableOpacity style={styles.button}
                         onPress={_onPress_SignOut}
@@ -36,7 +36,8 @@ export default Settings;
 const styles = StyleSheet.create({
     mailText: {
         margin: Metrics.width * 0.05,
-        fontSize: Metrics.width * 0.045
+        fontSize: Metrics.width * 0.05,
+        color: '#14a6ff'
     },
     logOutText: {
         color: 'white',

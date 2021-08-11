@@ -56,7 +56,9 @@ const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
     return (
-        <Drawer.Navigator>
+        <Drawer.Navigator
+        initialRouteName={'HomeTab'}
+        >
             <Drawer.Screen name="HomeTab" component={TabNavigation} options={{title:'Home'}} />
             <Drawer.Screen name="Notifications" component={Notifications} />
             <Drawer.Screen name="feed" component={Feed} />
