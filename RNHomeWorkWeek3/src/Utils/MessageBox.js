@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
 import Metrics from '../constant/Metrics';
 import { sendMessage } from '../Firebase/Firebase';
-import { userSelector } from '../Redux/UserRedux';
 
 const MessageBox = props => {
-    const user =useSelector(userSelector)
     const [to, setTo] = useState('')
     const [message, setMessage] = useState('')
-    const userID=user.uid
 
 
     const _sendMessage = async (userID,{name:to,message}) => {
@@ -51,7 +47,7 @@ const MessageBox = props => {
             <View style={styles.buttonCont}>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => _sendMessage(userID, { name: to, message })}
+                    onPress={() => _sendMessage({ name: to, message })}
 
                 >
                     <Text style={{color:'white'}}>Gönder</Text>

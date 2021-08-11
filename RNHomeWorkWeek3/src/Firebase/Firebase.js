@@ -1,5 +1,8 @@
 import createFBAuth from "@react-native-firebase/auth";
 import database from '@react-native-firebase/database';
+import { useSelector } from "react-redux";
+import { userSelector } from "../Redux/UserRedux";
+
 
 
 const auth = createFBAuth();
@@ -20,7 +23,9 @@ export const signOut = async () => {
 }
 
 
-export const sendMessage = async (uid, { name, message }) => {
+export const sendMessage = async ({ name, message }) => {
+    const user = useSelector(userSelector)
+    let uid = user.uid
     const newReference = database().ref(`/users/${uid}`).push();
     newReference
         .set({
@@ -28,4 +33,13 @@ export const sendMessage = async (uid, { name, message }) => {
             message: message
         })
         .then(() => console.log('Data set.'));
+}
+
+export const getMessages = async (uid) => {
+
+    return await database()
+        .ref(`/users/${uid}/`)
+        .on('value', snapshot => {
+            console.log('User data: ', snapshot.val());
+        });
 }

@@ -5,12 +5,18 @@ import { Svgs } from '../StylingConstants';
 import Icon from '../Utils/Icon';
 import Modal from 'react-native-modal';
 import MessageBox from '../Utils/MessageBox';
+import { getMessages } from '../Firebase/Firebase';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../Redux/UserRedux';
 
 const Messages = props => {
+    const user=useSelector(userSelector)
+    const data=getMessages(user.uid)
     const [isVisible, setVisible] = useState(false)
     const _visibility = val => {
         setVisible(val)
     }
+    console.log(data)
     return (
 
         <View style={styles.container}>
