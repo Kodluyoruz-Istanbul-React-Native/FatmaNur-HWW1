@@ -16,7 +16,7 @@ const Messages = props => {
     const _visibility = val => {
         setVisible(val)
     }
-    console.log(data)
+    // console.log('-----------------------------------',data)
     return (
 
         <View style={styles.container}>

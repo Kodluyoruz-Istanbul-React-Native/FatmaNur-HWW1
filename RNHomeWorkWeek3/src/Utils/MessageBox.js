@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 import Metrics from '../constant/Metrics';
 import { sendMessage } from '../Firebase/Firebase';
+import { userSelector } from '../Redux/UserRedux';
 
 const MessageBox = props => {
     const [to, setTo] = useState('')
     const [message, setMessage] = useState('')
+    const user = useSelector(userSelector)
+    const userID = user.uid;
 
-
-    const _sendMessage = async (userID,{name:to,message}) => {
+    
+    const _sendMessage = async (userID, { name: to, message }) => {
 
         if (to.trim() === '' || message.trim() === '') {
-           alert("Kişi ve ya Mesaj boş bırakılamaz")
+            alert("Kişi ve ya Mesaj boş bırakılamaz")
         }
         else {
             await sendMessage(userID, { name: to, message })
@@ -20,6 +24,7 @@ const MessageBox = props => {
 
     }
     return (
+        
         <View
             style={styles.container}>
             <View>
@@ -47,12 +52,12 @@ const MessageBox = props => {
             <View style={styles.buttonCont}>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => _sendMessage({ name: to, message })}
+                    onPress={() => _sendMessage(userID,{ name: to, message:message })}
 
                 >
-                    <Text style={{color:'white'}}>Gönder</Text>
+                    <Text style={{ color: 'white' }}>Gönder</Text>
                 </TouchableOpacity>
-          </View>
+            </View>
         </View>
     );
 };
