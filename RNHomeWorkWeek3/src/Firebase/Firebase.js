@@ -31,7 +31,21 @@ export const getCurrentUser = () => {
     return auth.currentUser;
 }
 
-export const getMessages = () => {
-    
+export const getMessages = (onDataRetrieved) => {
+    const userId = getCurrentUser().uid;
+
+    database()
+        .ref(`/users/${userId}`)
+        .on('value', snapshot => {
+            const rawData = snapshot.val();
+            const convertedList = convertedData(rawData);
+            onDataRetrieved(convertedList);
+        });
+
+    return () => {
+        database()
+            .ref(`/users/${userId}`)
+            .off('value');
+    }
 }
 
